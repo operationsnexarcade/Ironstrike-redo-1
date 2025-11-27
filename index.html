@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IronStrike Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: '#050101', // Darker, richer black
+              surface: '#0f0202', 
+              stone: {
+                100: '#fafaf9',
+                200: '#e7e5e4',
+                300: '#d6d3d1',
+                400: '#a8a29e',
+                500: '#78716c',
+                900: '#1c1917',
+              },
+              red: {
+                400: '#f87171',
+                500: '#ef4444',
+                600: '#dc2626',
+                700: '#b91c1c',
+                800: '#991b1b',
+                900: '#7f1d1d',
+                950: '#450a0a', 
+              },
+              gold: {
+                500: '#eab308', // Luxury accent
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'fade-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'scale-up': 'scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'shine': 'shine 8s linear infinite',
+              'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                'from': { opacity: '0', transform: 'translateY(30px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                'from': { opacity: '0' },
+                'to': { opacity: '1' },
+              },
+              scaleUp: {
+                'from': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
+                'to': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+              shine: {
+                '0%': { backgroundPosition: '200% center' },
+                '100%': { backgroundPosition: '-200% center' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              pulseGlow: {
+                '0%, 100%': { opacity: '0.4' },
+                '50%': { opacity: '0.8' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #050101;
+        color: #d6d3d1;
+        overflow-x: hidden;
+      }
+      
+      /* Luxury Scrollbar */
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #050101; }
+      ::-webkit-scrollbar-thumb { background: #330a0a; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #7f1d1d; }
+
+      /* Glassmorphism Ultra */
+      .glass-panel {
+          background: rgba(20, 5, 5, 0.4);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.03);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+
+      .glass-card {
+          background: linear-gradient(180deg, rgba(30, 10, 10, 0.4) 0%, rgba(10, 2, 2, 0.6) 100%);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      
+      .text-gradient-red {
+          background: linear-gradient(to right, #ffffff 10%, #ef4444 50%, #b91c1c 90%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 200% auto;
+          animation: shine 8s linear infinite;
+      }
+
+      .btn-shine {
+          background: linear-gradient(110deg, #1f0505 45%, #450a0a 50%, #1f0505 55%);
+          background-size: 200% 100%;
+          animation: shine 6s linear infinite;
+      }
+
+      .bg-grid-pattern {
+          background-size: 80px 80px;
+          background-image: 
+              linear-gradient(to right, rgba(220, 38, 38, 0.03) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+          mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@2.39.3",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
